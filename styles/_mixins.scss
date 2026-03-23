@@ -1,0 +1,39 @@
+@use 'variables' as *;
+
+@mixin section-padding {
+  padding: 5rem 1.5rem;
+
+  @media (min-width: $md) {
+    padding: 7rem 3rem;
+  }
+
+  @media (min-width: $xl) {
+    padding: 7rem 5rem;
+  }
+}
+
+@mixin max-container($width: $xl) {
+  max-width: $width;
+  margin-inline: auto;
+}
+
+@mixin gold-text-gradient {
+  background: $gradient-gold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.5), transparent);
+}
+
+@mixin section-overline {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: 1rem;
+}

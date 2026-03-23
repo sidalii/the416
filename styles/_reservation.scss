@@ -1,0 +1,178 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.reservation {
+  @include section-padding;
+  background: $bg;
+  position: relative;
+  overflow: hidden;
+
+  // Decorative blobs
+  &__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+
+    &--tl {
+      top: 0;
+      left: 0;
+      width: 18rem;
+      height: 18rem;
+      background: rgba(20, 61, 44, 0.2);
+    }
+
+    &--br {
+      bottom: 0;
+      right: 0;
+      width: 24rem;
+      height: 24rem;
+      background: rgba(201, 162, 39, 0.05);
+    }
+  }
+
+  &__inner {
+    @include max-container(48rem);
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  &__overline {
+    @include section-overline;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    @include gold-text-gradient;
+  }
+
+  &__divider {
+    @include gold-divider;
+    width: 8rem;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    color: rgba(237, 232, 219, 0.6);
+    max-width: 32rem;
+    margin-inline: auto;
+  }
+
+  // Success state
+  &__success {
+    text-align: center;
+    padding: 4rem 2rem;
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    background: rgba(20, 61, 44, 0.2);
+  }
+
+  &__success-title {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    color: $gold;
+    margin-bottom: 0.5rem;
+  }
+
+  &__success-text {
+    font-family: $font-body;
+    color: rgba(237, 232, 219, 0.6);
+  }
+
+  // Form
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__grid-2 {
+    display: grid;
+    gap: 1.5rem;
+
+    @media (min-width: $md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__grid-3 {
+    display: grid;
+    gap: 1.5rem;
+
+    @media (min-width: $md) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-family: $font-body;
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $muted;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    width: 100%;
+    background: $input-bg;
+    border: 1px solid $border;
+    padding: 0.75rem 1rem;
+    font-family: $font-body;
+    color: $fg;
+    transition: border-color 0.3s;
+    outline: none;
+    appearance: none;
+
+    &::placeholder {
+      color: rgba(160, 152, 128, 0.5);
+    }
+
+    &:focus {
+      border-color: rgba(201, 162, 39, 0.5);
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__submit-wrap {
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  &__submit {
+    padding: 1rem 3.5rem;
+    background: $emerald;
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    color: $gold;
+    font-family: $font-body;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+
+    &:hover {
+      background: $emerald-light;
+      border-color: $gold;
+    }
+  }
+}

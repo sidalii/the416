@@ -1,0 +1,116 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.menu {
+  @include section-padding;
+  background: $charcoal;
+
+  &__inner {
+    @include max-container(56rem);
+    text-align: center;
+  }
+
+  &__overline {
+    @include section-overline;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: $fg;
+    margin-bottom: 1.5rem;
+
+    span {
+      @include gold-text-gradient;
+    }
+  }
+
+  &__divider {
+    @include gold-divider;
+    width: 8rem;
+    margin-inline: auto;
+    margin-bottom: 3rem;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  &__tab {
+    padding: 0.75rem 1.5rem;
+    font-family: $font-body;
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid $border;
+    color: $muted;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+
+    &:hover {
+      border-color: rgba(201, 162, 39, 0.3);
+      color: $gold;
+    }
+
+    &--active {
+      background: $emerald;
+      border-color: rgba(201, 162, 39, 0.5);
+      color: $gold;
+    }
+  }
+
+  &__items {
+    display: grid;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(58, 53, 41, 0.5);
+    text-align: left;
+    transition: background 0.3s;
+
+    &:hover {
+      background: rgba(20, 20, 20, 0.5);
+    }
+  }
+
+  &__item-info {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  &__item-name {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $fg;
+    transition: color 0.3s;
+
+    .menu__item:hover & {
+      color: $gold;
+    }
+  }
+
+  &__item-desc {
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $muted;
+    margin-top: 0.25rem;
+  }
+
+  &__item-price {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $gold;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+}

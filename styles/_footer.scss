@@ -1,0 +1,121 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  background: $charcoal;
+  border-top: 1px solid $border;
+
+  &__inner {
+    @include max-container();
+    padding: 4rem 1.5rem;
+
+    @media (min-width: $md) {
+      padding: 4rem 3rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: $md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__brand-title {
+    font-family: $font-display;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    @include gold-text-gradient;
+  }
+
+  &__brand-text {
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $muted;
+    line-height: 1.7;
+  }
+
+  &__section-title {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $gold;
+    margin-bottom: 1rem;
+  }
+
+  &__hours {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $muted;
+  }
+
+  &__hours-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__hours-time {
+    color: rgba(237, 232, 219, 0.7);
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $muted;
+  }
+
+  &__contact-link {
+    color: rgba(237, 232, 219, 0.7);
+    transition: color 0.3s;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  &__social-link {
+    font-family: $font-body;
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $muted;
+    border: 1px solid $border;
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s, border-color 0.3s;
+
+    &:hover {
+      color: $gold;
+      border-color: rgba(201, 162, 39, 0.3);
+    }
+  }
+
+  &__divider {
+    @include gold-divider;
+    margin-bottom: 2rem;
+  }
+
+  &__copy {
+    text-align: center;
+    font-family: $font-body;
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    color: $muted;
+  }
+}

@@ -1,0 +1,37 @@
+// ── Colors ──────────────────────────────────────────────────────────────────
+$bg:             hsl(0, 0%, 4%);
+$bg-card:        hsl(0, 0%, 7%);
+$fg:             hsl(43, 30%, 92%);
+
+$gold:           hsl(43, 72%, 55%);
+$gold-light:     hsl(43, 80%, 70%);
+$gold-dark:      hsl(43, 60%, 40%);
+
+$emerald:        hsl(152, 45%, 28%);
+$emerald-deep:   hsl(152, 50%, 16%);
+$emerald-light:  hsl(152, 35%, 40%);
+
+$charcoal:       hsl(0, 0%, 8%);
+$charcoal-light: hsl(0, 0%, 14%);
+
+$muted:          hsl(43, 10%, 60%);
+$border:         hsl(43, 15%, 20%);
+$input-bg:       hsl(0, 0%, 14%);
+
+// ── Typography ───────────────────────────────────────────────────────────────
+$font-display: 'Playfair Display', Georgia, serif;
+$font-body:    'Lato', 'Helvetica Neue', sans-serif;
+
+// ── Gradients ────────────────────────────────────────────────────────────────
+$gradient-gold:    linear-gradient(135deg, #{$gold}, #{$gold-light}, #{$gold-dark});
+$gradient-emerald: linear-gradient(135deg, #{$emerald-deep}, #{$emerald});
+
+// ── Shadows ───────────────────────────────────────────────────────────────────
+$shadow-gold:    0 4px 30px rgba(201, 162, 39, 0.15);
+$shadow-elegant: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+// ── Breakpoints ───────────────────────────────────────────────────────────────
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;

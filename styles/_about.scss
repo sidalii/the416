@@ -1,0 +1,89 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about-video {
+  position: relative;
+  height: clamp(24rem, 90vh, 64rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  // Blurred background — fills the dead space on the sides
+  &__vid-blur {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: blur(24px) brightness(0.35);
+    transform: scale(1.05); // prevents blur edges from showing
+  }
+
+  // Clean foreground video — fully visible, no crop
+  &__vid {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 10, 10, 0.55),
+      rgba(10, 10, 10, 0.4) 50%,
+      rgba(10, 10, 10, 0.75)
+    );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding-inline: 1.5rem;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  &__overline {
+    @include section-overline;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: $fg;
+    margin-bottom: 1.5rem;
+
+    span {
+      @include gold-text-gradient;
+    }
+  }
+
+  &__divider {
+    @include gold-divider;
+    width: 8rem;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(237, 232, 219, 0.85);
+    line-height: 1.7;
+  }
+}
