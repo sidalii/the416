@@ -1,14 +1,14 @@
 @use 'variables' as *;
 
 @mixin section-padding {
-  padding: 5rem 1.5rem;
+  padding: 80px 24px;
 
   @media (min-width: $md) {
-    padding: 7rem 3rem;
+    padding: 112px 48px;
   }
 
   @media (min-width: $xl) {
-    padding: 7rem 5rem;
+    padding: 112px 80px;
   }
 }
 
@@ -31,9 +31,9 @@
 
 @mixin section-overline {
   font-family: $font-body;
-  font-size: 0.75rem;
+  font-size: 12px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: $gold;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }

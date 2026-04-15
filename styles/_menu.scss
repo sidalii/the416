@@ -6,7 +6,7 @@
   background: $charcoal;
 
   &__inner {
-    @include max-container(56rem);
+    @include max-container(896px);
     text-align: center;
   }
 
@@ -16,10 +16,10 @@
 
   &__heading {
     font-family: $font-display;
-    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-size: clamp(32px, 5vw, 52px);
     font-weight: 700;
     color: $fg;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
 
     span {
       @include gold-text-gradient;
@@ -28,28 +28,31 @@
 
   &__divider {
     @include gold-divider;
-    width: 8rem;
+    width: 128px;
     margin-inline: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
   }
+
+  // ── Tabs ─────────────────────────────────────────────────────────────────────
 
   &__tabs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 3.5rem;
+    gap: 8px;
+    margin-bottom: 56px;
   }
 
   &__tab {
-    padding: 0.75rem 1.5rem;
+    padding: 12px 24px;
     font-family: $font-body;
-    font-size: 0.625rem;
+    font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border: 1px solid $border;
     color: $muted;
     transition: border-color 0.3s, color 0.3s, background 0.3s;
+    cursor: pointer;
 
     &:hover {
       border-color: rgba(201, 162, 39, 0.3);
@@ -63,6 +66,35 @@
     }
   }
 
+  // ── Content ──────────────────────────────────────────────────────────────────
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: left;
+  }
+
+  // ── Subcategory ──────────────────────────────────────────────────────────────
+
+  &__sub {
+    border: 1px solid $border;
+    overflow: hidden;
+  }
+
+  &__sub-title {
+    font-family: $font-display;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: $gold;
+    padding: 14px 20px;
+    background: rgba(201, 162, 39, 0.06);
+    border-bottom: 1px solid $border;
+  }
+
+  // ── Items ────────────────────────────────────────────────────────────────────
+
   &__items {
     display: grid;
   }
@@ -71,10 +103,13 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 1.5rem 1rem;
-    border-bottom: 1px solid rgba(58, 53, 41, 0.5);
-    text-align: left;
-    transition: background 0.3s;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(58, 53, 41, 0.4);
+    transition: background 0.25s;
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     &:hover {
       background: rgba(20, 20, 20, 0.5);
@@ -83,15 +118,16 @@
 
   &__item-info {
     flex: 1;
-    padding-right: 2rem;
+    padding-right: 24px;
   }
 
   &__item-name {
     font-family: $font-display;
-    font-size: 1.25rem;
+    font-size: 16px;
     font-weight: 600;
     color: $fg;
-    transition: color 0.3s;
+    transition: color 0.25s;
+    display: block;
 
     .menu__item:hover & {
       color: $gold;
@@ -100,17 +136,44 @@
 
   &__item-desc {
     font-family: $font-body;
-    font-size: 0.875rem;
+    font-size: 13px;
     color: $muted;
-    margin-top: 0.25rem;
+    margin-top: 3px;
+    line-height: 1.4;
   }
 
   &__item-price {
     font-family: $font-display;
-    font-size: 1.25rem;
+    font-size: 16px;
     font-weight: 700;
     color: $gold;
     flex-shrink: 0;
-    padding-top: 0.25rem;
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+
+  // ── CTA ──────────────────────────────────────────────────────────────────────
+
+  &__order-wrap {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  &__order-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    font-family: $font-body;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $charcoal;
+    background: linear-gradient(135deg, $gold, #e8c84a);
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+
+    &:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
   }
 }

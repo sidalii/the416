@@ -4,8 +4,7 @@ const hours = [
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/the_416_oran/" },
-  { label: "Facebook", href: "#" },
-  { label: "TripAdvisor", href: "#" },
+  { label: "TikTok", href: "https://www.tiktok.com/@the_416_coffee" },
 ];
 
 export default function FooterSection() {
@@ -36,16 +35,11 @@ export default function FooterSection() {
           <div>
             <h4 className="footer__section-title">Contact</h4>
             <ul className="footer__contact">
-              <li>416 Avenue des Champs-Élysées</li>
-              <li>75008 Paris, France</li>
+              <li>ARDIS (en Construction), Boulevard des lions, Rond-point</li>
+              <li>Oran 31000, Algérie</li>
               <li style={{ paddingTop: "0.5rem" }}>
-                <a href="tel:+33142567890" className="footer__contact-link">
-                  +33 1 42 56 78 90
-                </a>
-              </li>
-              <li>
-                <a href="mailto:contact@the416.fr" className="footer__contact-link">
-                  contact@the416.fr
+                <a href="tel:+213551158020" className="footer__contact-link">
+                  +213 5 51 15 80 20
                 </a>
               </li>
             </ul>
@@ -61,6 +55,37 @@ export default function FooterSection() {
 
         <div className="footer__divider" />
         <p className="footer__copy">© 2026 THE 416. Tous droits réservés.</p>
+
+        <div className="footer__devby">
+          <span className="footer__devby-label">Site conçu & développé par</span>
+          <a
+            href="https://75code.com/ar"
+            className="footer__devby-brand"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            75Code
+          </a>
+          <div className="footer__devby-socials">
+            <a
+              href="https://instagram.com/75code"
+              className="footer__devby-social"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            <span className="footer__devby-dot" />
+            <a
+              href="https://facebook.com/75code"
+              className="footer__devby-social"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

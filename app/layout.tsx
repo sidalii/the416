@@ -73,6 +73,11 @@ export const metadata: Metadata = {
       "Une expérience culinaire d'exception au Boulevard du Lion, Oran, Algérie.",
   },
 
+  icons: {
+    icon: "/the416-logo.jpg",
+    apple: "/the416-logo.jpg",
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -119,7 +124,7 @@ const jsonLd = {
   reservations: `${siteUrl}/#reservation`,
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+33-1-42-56-78-90",
+    telephone: "+213 5 51 15 80 20",
     contactType: "reservations",
     availableLanguage: ["French", "Arabic"],
   },

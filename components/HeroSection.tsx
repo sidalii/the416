@@ -1,14 +1,14 @@
+"use client";
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function HeroSection() {
   return (
     <section id="hero" className="hero">
       <div className="hero__bg">
-        <video
-          className="hero__img"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
+        <video className="hero__img" autoPlay muted loop playsInline>
           <source src="/cover-video.mp4" type="video/mp4" />
         </video>
         <div className="hero__overlay" />
@@ -30,12 +30,12 @@ export default function HeroSection() {
         </div>
 
         <div className="animate-fade-in-up-delay-3 hero__cta">
-          <a href="#menu" className="hero__btn hero__btn--primary">
+          <button onClick={() => scrollTo("menu")} className="hero__btn hero__btn--primary">
             Découvrir le Menu
-          </a>
-          <a href="#reservation" className="hero__btn hero__btn--outline">
+          </button>
+          <button onClick={() => scrollTo("reservation")} className="hero__btn hero__btn--outline">
             Réserver une Table
-          </a>
+          </button>
         </div>
       </div>
 

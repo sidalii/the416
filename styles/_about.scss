@@ -1,59 +1,13 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.about-video {
-  position: relative;
-  height: clamp(24rem, 90vh, 64rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.gallery {
+  @include section-padding;
+  background: $bg;
 
-  &__bg {
-    position: absolute;
-    inset: 0;
-  }
-
-  // Blurred background — fills the dead space on the sides
-  &__vid-blur {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: blur(24px) brightness(0.35);
-    transform: scale(1.05); // prevents blur edges from showing
-  }
-
-  // Clean foreground video — fully visible, no crop
-  &__vid {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 10, 10, 0.55),
-      rgba(10, 10, 10, 0.4) 50%,
-      rgba(10, 10, 10, 0.75)
-    );
-  }
-
-  &__content {
-    position: relative;
-    z-index: 10;
+  &__inner {
+    @include max-container(72rem);
     text-align: center;
-    padding-inline: 1.5rem;
-    max-width: 40rem;
-    margin-inline: auto;
   }
 
   &__overline {
@@ -76,14 +30,78 @@
     @include gold-divider;
     width: 8rem;
     margin-inline: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
 
-  &__text {
-    font-family: $font-display;
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(237, 232, 219, 0.85);
-    line-height: 1.7;
+  // ── Grid ─────────────────────────────────────────────────────────────────────
+  // Desktop:
+  //  [ dish-1  (wide) ][ chef  ]
+  //  [ dish-2 ][ dish-3 ][ dish-4 ]
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 360px 300px;
+    gap: 0.5rem;
+
+    @media (max-width: $md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 260px 260px 260px;
+    }
+
+    @media (max-width: $sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 260px);
+    }
+  }
+
+  &__cell {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover .gallery__img {
+      transform: scale(1.06);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      transition: background 0.4s;
+      z-index: 1;
+    }
+
+    &:hover::after {
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid transparent;
+      transition: border-color 0.4s;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      border-color: rgba(201, 162, 39, 0.45);
+    }
+
+    &--wide {
+      grid-column: span 2;
+
+      @media (max-width: $sm) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    transition: transform 0.6s ease;
   }
 }
